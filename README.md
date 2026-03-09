@@ -7,7 +7,7 @@ This is the base application structure for the Let's Talk (LST) chat application
 ### Clone the Repository
 
 ```bash
-git clone <repository-url>
+git clone [<repository-url>](https://github.com/johnwus/lst.git)
 cd lst
 ```
 
@@ -23,23 +23,23 @@ cd lst
 ### Workflow
 
 1. Always pull latest changes before starting work:
-   ```bash
+ ```bash
 git pull origin develop
 ```
 
 2. Create a new branch from `develop`:
-   ```bash
+ ```bash
 git checkout -b feature/your-feature-name
 ```
 
 3. Make your changes and commit frequently:
-   ```bash
+```bash
 git add .
 git commit -m "Description of changes"
 ```
 
 4. Push your branch and create a Pull Request:
-   ```bash
+ ```bash
 git push origin feature/your-feature-name
 ```
 
