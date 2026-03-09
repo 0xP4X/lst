@@ -7,7 +7,7 @@ This is the base application structure for the Let's Talk (LST) chat application
 ### Clone the Repository
 
 ```bash
-git clone [<repository-url>](https://github.com/johnwus/lst.git)
+git clone https://github.com/johnwus/lst.git
 cd lst
 ```
 
