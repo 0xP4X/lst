@@ -49,7 +49,7 @@ team/
 ## What's Not Included (by design)
 
 The following are intentionally excluded from version control:
-- `node_modules/` - Dependencies (installed via npm install)
+- `node_modules/` - Dependencies (installed via pnpm install)
 - `.env` files - Environment variables (contain sensitive data)
 - `dist/` or `build/` - Compiled output (generated during build)
 - `*.log` - Log files
@@ -59,8 +59,8 @@ The following are intentionally excluded from version control:
 
 1. Install dependencies:
    ```bash
-   cd lst/frontend && npm install
-   cd lst/backend && npm install
+   cd lst/frontend && pnpm install
+   cd lst/backend && pnpm install
    ```
 
 2. Configure environment variables in backend folder

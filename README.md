@@ -11,32 +11,6 @@ git clone <repository-url>
 cd lst
 ```
 
-### Initial Setup for Team Members
-
-After cloning, follow these steps to set up the project:
-
-1. **Install dependencies**
-   ```bash
-   # Install frontend dependencies
-   cd lst/frontend
-   npm install
-
-   # Install backend dependencies
-   cd lst/backend
-   npm install
-   ```
-
-2. **Configure environment variables**
-   - Copy `.env.example` to `.env` in the backend folder
-   - Update with your local configuration (MongoDB connection, JWT secret, etc.)
-
-3. **Create your development branch**
-   ```bash
-git checkout -b feature/your-feature-name
-# or
-git checkout -b fix/issue-description
-   ```
-
 ### Branch Naming Conventions
 
 - `main` - Production-ready code (protected branch)
@@ -127,7 +101,7 @@ lst/
 ### Prerequisites
 - Node.js (v18 or higher)
 - MongoDB (local or Atlas)
-- npm or yarn
+- pnpm (v8 or higher)
 
 ### Installation
 
@@ -136,13 +110,13 @@ lst/
 2. **Install frontend dependencies**
    ```bash
    cd lst/frontend
-   npm install
+   pnpm install
    ```
 
 3. **Install backend dependencies**
    ```bash
    cd lst/backend
-   npm install
+   pnpm install
    ```
 
 4. **Configure environment variables**
@@ -154,13 +128,13 @@ lst/
 1. **Start the backend server**
    ```bash
    cd lst/backend
-   npm run dev
+   pnpm run dev
    ```
 
 2. **Start the frontend development server**
    ```bash
    cd lst/frontend
-   npm start
+   pnpm start
    ```
 
 ## Project Phases
