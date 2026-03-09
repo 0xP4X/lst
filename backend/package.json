@@ -1,0 +1,37 @@
+{
+  "name": "lst-backend",
+  "version": "1.0.0",
+  "description": "Let's Talk (LST) - Backend API Server",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "jest",
+    "compile": "tsc --strict --noEmit",
+    "lint": "eslint . --max-warnings=0",
+    "format": "prettier --check ."
+  },
+  "keywords": [
+    "lst",
+    "lets-talk",
+    "chat",
+    "messaging",
+    "api",
+    "express"
+  ],
+  "author": "LST Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0",
+    "socket.io": "^4.6.0",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "jest": "^29.7.0"
+  }
+}

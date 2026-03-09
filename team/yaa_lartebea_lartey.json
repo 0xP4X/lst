@@ -1,0 +1,52 @@
+{
+  "teamMemberId": 7,
+  "name": "Yaa Lartebea Lartey",
+  "studentId": "9025723",
+  "role": "Frontend Developer",
+  "responsibility": "Profile & Settings Modules",
+  "email": "y.lartey@student.lst.edu",
+  "avatar": null,
+  "color": "#EF4444",
+  "assignedTasks": [
+    {
+      "taskId": "LST-FE-013",
+      "title": "User Profile View",
+      "description": "Develop the Profile screen. Requirements:\n1. Large Avatar display (96px, Support image or initials gradient).\n2. Username and Handle display.\n3. User Stats bar (Topics, Followers, Following) with bold numbers.\n4. Quick access list items (Admin Panel, Account Settings) with icon and chevron right.\n5. Log out button (Dark red surface).",
+      "assignee": "Yaa Lartebea Lartey",
+      "status": "TODO",
+      "priority": "High",
+      "dueDate": "2026-03-18",
+      "tags": ["frontend", "profile", "ui"]
+    },
+    {
+      "taskId": "LST-FE-014",
+      "title": "Notifications Center",
+      "description": "Build the Notification screen feed. Requirements:\n1. Section headers grouped by time ('TODAY', 'YESTERDAY').\n2. Notification items with colored icon circles (e.g. Chat=Purple, Heart=Red, Alert=Teal, Star=Orange).\n3. Distinct layout for unread vs read states.\n4. Tap handling to navigate to the respective topic/thread.",
+      "assignee": "Yaa Lartebea Lartey",
+      "status": "TODO",
+      "priority": "High",
+      "dueDate": "2026-03-22",
+      "tags": ["frontend", "notifications", "feed"]
+    },
+    {
+      "taskId": "LST-FE-015",
+      "title": "Preferences & Settings System",
+      "description": "Implement the settings toggle components shown on the Profile. Requirements:\n1. Custom toggle switches with active (Green)/inactive states.\n2. Settings data structure for Theme, Push Notifications, and Privacy.\n3. Basic local state mock for toggling preferences.",
+      "assignee": "Yaa Lartebea Lartey",
+      "status": "TODO",
+      "priority": "Medium",
+      "dueDate": "2026-03-24",
+      "tags": ["frontend", "settings", "components"]
+    }
+  ],
+  "skills": [
+    "React",
+    "Tailwind CSS",
+    "Form State Management",
+    "UI Component Design"
+  ],
+  "availability": {
+    "timezone": "Africa/Accra",
+    "preferredHours": "9:00 AM - 5:00 PM GMT"
+  }
+}

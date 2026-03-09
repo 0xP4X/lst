@@ -1,0 +1,52 @@
+{
+  "teamMemberId": 10,
+  "name": "Owusu John",
+  "studentId": "9038423",
+  "role": "QC / Tester",
+  "responsibility": "Usability Testing",
+  "email": "o.john@student.lst.edu",
+  "avatar": null,
+  "color": "#F97316",
+  "assignedTasks": [
+    {
+      "taskId": "LST-QA-001",
+      "title": "Mini-Thread Routing & UX Validation",
+      "description": "Perform deep-dive testing on the threaded messaging flow. Requirements:\n1. Verify reply-to levels (1-4) render correctly with connector lines.\n2. Test 'Open threads' transition from Global Room to Mini Thread.\n3. Validate navigation back button persistence and state conservation.",
+      "assignee": "Owusu John",
+      "status": "TODO",
+      "priority": "High",
+      "dueDate": "2026-03-24",
+      "tags": ["qa", "ux", "threads"]
+    },
+    {
+      "taskId": "LST-QA-002",
+      "title": "Real-time Messaging Functional Tests",
+      "description": "Test real-time data sync via Socket.io. Requirements:\n1. Verify incoming messages appear instantly without refresh.\n2. Test reaction counts updating across multiple devices.\n3. Validate typing indicator accuracy.",
+      "assignee": "Owusu John",
+      "status": "TODO",
+      "priority": "High",
+      "dueDate": "2026-03-28",
+      "tags": ["qa", "sockets", "real-time"]
+    },
+    {
+      "taskId": "LST-QA-003",
+      "title": "Accessibility & WCAG Compliance Audit",
+      "description": "Audit the 'Midnight Glass' UI for accessibility. Requirements:\n1. Check color contrast on dark backgrounds (Text Secondary #B2B2B2).\n2. Verify keyboard navigation for navigation tabs and inputs.\n3. Set up ARIA labels for icon-only buttons (More, Search, Profile).",
+      "assignee": "Owusu John",
+      "status": "TODO",
+      "priority": "Medium",
+      "dueDate": "2026-04-02",
+      "tags": ["qa", "accessibility"]
+    }
+  ],
+  "skills": [
+    "Usability Testing",
+    "Functional Testing",
+    "Accessibility Auditing",
+    "Bug Documentation"
+  ],
+  "availability": {
+    "timezone": "Africa/Accra",
+    "preferredHours": "9:00 AM - 5:00 PM GMT"
+  }
+}

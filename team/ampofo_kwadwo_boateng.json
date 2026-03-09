@@ -1,0 +1,62 @@
+{
+  "teamMemberId": 4,
+  "name": "Ampofo Kwadwo Boateng",
+  "studentId": "8994023",
+  "role": "Frontend Developer",
+  "responsibility": "Topic & Room Interfaces",
+  "email": "a.kwadwoboateng@student.lst.edu",
+  "avatar": null,
+  "color": "#10B981",
+  "assignedTasks": [
+    {
+      "taskId": "LST-FE-001",
+      "title": "Topic Card Component (Global/Trending)",
+      "description": "Create the base Topic Card component according to the Explore and Main screen wireframes. Requirements: \n1. Title font 600 weight.\n2. Category pill mapping (e.g., Tech = Blue, Business = Purple).\n3. Live countdown timer badge (e.g., '26h left').\n4. Participant count ('1.2K' format).\n5. Hover state: slight opacity change or border highlight.\n6. Click handler placeholder for navigation.",
+      "assignee": "Ampofo Kwadwo Boateng",
+      "status": "TODO",
+      "priority": "High",
+      "dueDate": "2026-03-15",
+      "tags": ["frontend", "component", "ui", "topics"]
+    },
+    {
+      "taskId": "LST-FE-002",
+      "title": "Explore Screen: Category Horizontal Scroller",
+      "description": "Build the horizontal scrollable category pill selector for the Explore screen. Requirements:\n1. Pills must snap to scroll.\n2. Active state (e.g., Purple background for selected 'All' pill).\n3. Inactive state (Dark surface background).\n4. Hide native scrollbars (use ::-webkit-scrollbar { display: none; }).\n5. Implement mock state for switching active category.",
+      "assignee": "Ampofo Kwadwo Boateng",
+      "status": "TODO",
+      "priority": "Medium",
+      "dueDate": "2026-03-17",
+      "tags": ["frontend", "explore", "components"]
+    },
+    {
+      "taskId": "LST-FE-003",
+      "title": "Topic Room Detail Header (Global Room)",
+      "description": "Implement the persistent Top App Bar for the Global Chat room. Requirements:\n1. Back arrow icon.\n2. Topic Title (centered, bold).\n3. 'More' (ellipsis) icon button.\n4. Fixed position at the top during scroll.\n5. Filter bar row just below the header (All, Host only, You).",
+      "assignee": "Ampofo Kwadwo Boateng",
+      "status": "TODO",
+      "priority": "High",
+      "dueDate": "2026-03-20",
+      "tags": ["frontend", "rooms", "header"]
+    },
+    {
+      "taskId": "LST-FE-004",
+      "title": "Share Topic Modal Sheet",
+      "description": "Build the bottom-sheet modal for sharing a topic. Requirements:\n1. Topic Summary block.\n2. 'Copy Link' input field with copy button.\n3. QR Code placeholder box (dashed border).\n4. 'Open native share' primary green button.\n5. Slide-up animation on enter, slide-down on exit.",
+      "assignee": "Ampofo Kwadwo Boateng",
+      "status": "TODO",
+      "priority": "Low",
+      "dueDate": "2026-03-24",
+      "tags": ["frontend", "modal", "share"]
+    }
+  ],
+  "skills": [
+    "React",
+    "Tailwind CSS",
+    "Framer Motion",
+    "Component Design"
+  ],
+  "availability": {
+    "timezone": "Africa/Accra",
+    "preferredHours": "9:00 AM - 5:00 PM GMT"
+  }
+}

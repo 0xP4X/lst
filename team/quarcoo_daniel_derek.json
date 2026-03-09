@@ -1,0 +1,63 @@
+{
+  "teamMemberId": 5,
+  "name": "Quarcoo Daniel Derek Nii Kwei",
+  "studentId": "9040123",
+  "role": "Frontend Developer",
+  "responsibility": "Messaging & Thread Logic",
+  "email": "q.danielderek@student.lst.edu",
+  "avatar": null,
+  "color": "#3B82F6",
+  "assignedTasks": [
+    {
+      "taskId": "LST-FE-005",
+      "title": "Message Bubble Component (Global & Mini-Thread)",
+      "description": "Create the base message bubble component. Requirements:\n1. Avatar circle with dynamic background color (based on initials).\n2. Name and tag (e.g., 'Host', 'Following').\n3. Timestamp (e.g., '4:12 PM').\n4. Message body text (14px/0.875rem).\n5. Action footer: 'Open threads', 'Edit' (if owner), 'Delete', 'Report'.\n6. Bottom border separator.",
+      "assignee": "Quarcoo Daniel Derek Nii Kwei",
+      "status": "TODO",
+      "priority": "High",
+      "dueDate": "2026-03-15",
+      "tags": ["frontend", "messaging", "components"]
+    },
+    {
+      "taskId": "LST-FE-006",
+      "title": "Thread Tree Indentation Logic",
+      "description": "Build the recursive threaded message list view for 'Your Threads' and 'Mini Thread' screens. Requirements:\n1. Parent message at Level 0.\n2. Replies indented by 24px per level (max 4 visible levels).\n3. Render vertical/horizontal connector lines (#333333) between parent and children.\n4. Expand/Collapse thread branch toggle logic.",
+      "assignee": "Quarcoo Daniel Derek Nii Kwei",
+      "status": "TODO",
+      "priority": "High",
+      "dueDate": "2026-03-18",
+      "tags": ["frontend", "threads", "logic", "ui"]
+    },
+    {
+      "taskId": "LST-FE-007",
+      "title": "Global Chat Input Bar",
+      "description": "Develop the fixed bottom input bar for chatting. Requirements:\n1. Context label above input (e.g., 'Replying into #global-room').\n2. Rounded text input field.\n3. Send button (icon).\n4. Auto-resize input height based on text lines (max 4 lines).\n5. Footer text indicating timer/editing rules.",
+      "assignee": "Quarcoo Daniel Derek Nii Kwei",
+      "status": "TODO",
+      "priority": "Medium",
+      "dueDate": "2026-03-21",
+      "tags": ["frontend", "messaging", "input"]
+    },
+    {
+      "taskId": "LST-FE-008",
+      "title": "Empty State: Your Threads",
+      "description": "Implement the empty state view for the 'Your Threads' screen. Requirements:\n1. Central icon placeholder (💬).\n2. 'You haven\\'t joined any threads yet' text.\n3. Call-to-action button: 'Explore Topics' routing to the explore page.",
+      "assignee": "Quarcoo Daniel Derek Nii Kwei",
+      "status": "TODO",
+      "priority": "Low",
+      "dueDate": "2026-03-22",
+      "tags": ["frontend", "threads", "empty-state"]
+    }
+  ],
+  "skills": [
+    "React",
+    "Redux Toolkit",
+    "Socket.io",
+    "State Management",
+    "Real-time Systems"
+  ],
+  "availability": {
+    "timezone": "Africa/Accra",
+    "preferredHours": "9:00 AM - 5:00 PM GMT"
+  }
+}

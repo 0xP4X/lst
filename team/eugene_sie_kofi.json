@@ -1,0 +1,52 @@
+{
+  "teamMemberId": 2,
+  "name": "Eugene, Sie Kofi",
+  "studentId": "5311720",
+  "role": "UI/UX Designer",
+  "responsibility": "Visual Language & \"Glass\" System",
+  "email": "e.siekofi@student.lst.edu",
+  "avatar": null,
+  "color": "#EC4899",
+  "assignedTasks": [
+    {
+      "taskId": "LST-DS-001",
+      "title": "Core 'Midnight Glass' UI Kit Specification",
+      "description": "Define the precise CSS/Visual variables. Requirements:\n1. Surface Dark: #020617 (Gradients).\n2. Glass Blur: backdrop-filter: blur(12px) saturate(180%).\n3. Border: 1px solid rgba(255, 255, 255, 0.12).\n4. Typography: Inter/Outfit scale (Desktop: 16px, Mobile: 14px).\n5. Accent Colors: Purple (#8B5CF6), Teal (#14B8A6).",
+      "assignee": "Eugene, Sie Kofi",
+      "status": "TODO",
+      "priority": "Critical",
+      "dueDate": "2026-03-12",
+      "tags": ["design", "glass-system", "tokens"]
+    },
+    {
+      "taskId": "LST-DS-002",
+      "title": "PWA App Icons & Branding Assets",
+      "description": "Generate the required assets for the PWA manifest. Requirements:\n1. 512x512 and 192x192 masked icons.\n2. Splash screen logo (centered, high res).\n3. Favicon (32x32).\n4. All icons must follow the 'Midnight' color scheme.",
+      "assignee": "Eugene, Sie Kofi",
+      "status": "TODO",
+      "priority": "High",
+      "dueDate": "2026-03-14",
+      "tags": ["design", "pwa", "branding"]
+    },
+    {
+      "taskId": "LST-DS-003",
+      "title": "Design Audit: Component Implementation",
+      "description": "Review the frontend components built by the dev team. Requirements:\n1. Check blur consistency across browsers.\n2. Verify spacing matches the design grid.\n3. Audit dark-mode legibility for secondary text (#B2B2B2).",
+      "assignee": "Eugene, Sie Kofi",
+      "status": "TODO",
+      "priority": "Medium",
+      "dueDate": "2026-04-03",
+      "tags": ["design", "audit", "qa"]
+    }
+  ],
+  "skills": [
+    "UI Design",
+    "Glass Morphism",
+    "Figma Master",
+    "CSS Tokenization"
+  ],
+  "availability": {
+    "timezone": "Africa/Accra",
+    "preferredHours": "9:00 AM - 5:00 PM GMT"
+  }
+}
