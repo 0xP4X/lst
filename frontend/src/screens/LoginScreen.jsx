@@ -1,70 +1,38 @@
 import { Link, useNavigate } from "react-router-dom";
 import AuthLayout from "../components/auth/AuthLayout";
-import { useState } from "react";
 
 export default function LoginScreen() {
     const navigate = useNavigate();
-    const [formData, setFormData] = useState({
-        email: "",
-        password: "",
-    });
 
-    const handleLogin = (event) => {
-        event?.preventDefault();
+    const handleLogin = () => {
         localStorage.setItem("token", "demo-token");
-        localStorage.setItem("user", formData.email || "christ_user");
         navigate("/chat", { replace: true });
     };
 
     return (
         <AuthLayout
-            title="Sign in to Let&apos;s Talk"
-            buttonLabel="Enter workspace"
-            buttonType="submit"
-            onSubmit={handleLogin}
+            title="Login"
+            buttonLabel="Login"
+            onButtonClick={handleLogin}
             footer={
                 <>
-                    New to Let&apos;s Talk?{" "}
-                    <Link to="/register" className="font-semibold text-accent-teal">
+                    New to Let'sTalk?{" "}
+                    <Link to="/register" className="text-accent-purple">
                         Create an account
                     </Link>
                 </>
             }
         >
-            <label className="block">
-                <span className="mb-2 block text-sm font-medium text-white/72">
-                    Email
-                </span>
                 <input
-                    placeholder="you@example.com"
-                    value={formData.email}
-                    onChange={(event) =>
-                        setFormData((prev) => ({
-                            ...prev,
-                            email: event.target.value,
-                        }))
-                    }
-                    className="w-full rounded-2xl border border-white/10 bg-[#0d2029]/90 px-4 py-3 text-white outline-none transition placeholder:text-white/30 focus:border-accent-teal"
+                    placeholder="Email"
+                    className="w-full mb-3 px-3 py-2 rounded-lg bg-midnight border border-midnight-border text-white outline-none"
                 />
-            </label>
 
-            <label className="block">
-                <span className="mb-2 block text-sm font-medium text-white/72">
-                    Password
-                </span>
                 <input
-                    placeholder="Enter your password"
+                    placeholder="Password"
                     type="password"
-                    value={formData.password}
-                    onChange={(event) =>
-                        setFormData((prev) => ({
-                            ...prev,
-                            password: event.target.value,
-                        }))
-                    }
-                    className="w-full rounded-2xl border border-white/10 bg-[#0d2029]/90 px-4 py-3 text-white outline-none transition placeholder:text-white/30 focus:border-accent-purple"
+                    className="w-full mb-4 px-3 py-2 rounded-lg bg-midnight border border-midnight-border text-white outline-none"
                 />
-            </label>
         </AuthLayout>
     );
 }

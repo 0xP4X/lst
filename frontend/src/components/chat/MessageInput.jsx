@@ -1,15 +1,6 @@
 import { useRef, useState } from "react";
 import EmojiPicker from "emoji-picker-react";
 
-function readFileAsDataUrl(file) {
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = () => reject(reader.error);
-        reader.readAsDataURL(file);
-    });
-}
-
 function ImageIcon() {
     return (
         <svg
@@ -40,6 +31,10 @@ function SendIcon() {
     );
 }
 
+function EmojiIcon() {
+    return <span className="text-lg leading-none">😊</span>;
+}
+
 export default function MessageInput({ onSend }) {
     const [input, setInput] = useState("");
     const [showEmojiPicker, setShowEmojiPicker] = useState(false);
@@ -67,28 +62,32 @@ export default function MessageInput({ onSend }) {
         setInput((prev) => prev + emojiData.emoji);
     };
 
-    const handleKeyDown = (event) => {
-        if (event.key === "Enter") {
-            event.preventDefault();
+    const handleKeyDown = (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
             handleSend();
         }
     };
 
-    const handleFileChange = async (event) => {
-        const file = event.target.files?.[0];
-        if (!file) return;
+    const handleImageButtonClick = () => {
+        fileInputRef.current?.click();
+    };
 
-        const dataUrl = await readFileAsDataUrl(file);
+    const handleFileChange = (e) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
 
         setSelectedImage({
             file,
-            previewUrl: dataUrl,
+            previewUrl: URL.createObjectURL(file),
             name: file.name,
-            mimeType: file.type,
         });
     };
 
     const removeSelectedImage = () => {
+        if (selectedImage?.previewUrl) {
+            URL.revokeObjectURL(selectedImage.previewUrl);
+        }
         setSelectedImage(null);
 
         if (fileInputRef.current) {
@@ -97,21 +96,21 @@ export default function MessageInput({ onSend }) {
     };
 
     return (
-        <div className="sticky bottom-0 z-10 border-t border-white/10 bg-[linear-gradient(180deg,rgba(9,23,31,0),rgba(9,23,31,0.88)_18%,rgba(9,23,31,0.96)_100%)] px-4 pb-4 pt-3 sm:px-6">
-            {showEmojiPicker ? (
-                <div className="absolute bottom-[88px] left-4 z-20 overflow-hidden rounded-2xl border border-white/10 shadow-lg sm:left-6">
+        <div className="relative px-4 pb-4 pt-3">
+            {showEmojiPicker && (
+                <div className="absolute bottom-[72px] left-4 z-20 overflow-hidden rounded-xl border border-midnight-border shadow-lg">
                     <EmojiPicker onEmojiClick={handleEmojiClick} theme="dark" />
                 </div>
-            ) : null}
+            )}
 
-            {selectedImage ? (
-                <div className="mb-3 rounded-[24px] border border-white/10 bg-[#10242d]/92 p-3">
+            {selectedImage && (
+                <div className="mb-3 rounded-xl border border-midnight-border bg-midnight-surface p-3">
                     <div className="mb-2 flex items-center justify-between">
                         <p className="truncate text-sm text-white/80">{selectedImage.name}</p>
                         <button
                             type="button"
                             onClick={removeSelectedImage}
-                            className="text-sm text-red-300 hover:text-red-200"
+                            className="text-sm text-red-400 hover:text-red-300"
                         >
                             Remove
                         </button>
@@ -120,33 +119,32 @@ export default function MessageInput({ onSend }) {
                     <img
                         src={selectedImage.previewUrl}
                         alt="Preview"
-                        className="max-h-40 rounded-xl object-cover"
+                        className="max-h-40 rounded-lg object-cover"
                     />
                 </div>
-            ) : null}
+            )}
 
-            <div className="glass-soft flex h-14 items-center gap-2 rounded-full border border-white/10 px-3 shadow-lg">
+            <div className="flex h-14 items-center gap-2 rounded-2xl border border-midnight-border bg-midnight-surface px-3 shadow-lg">
                 <button
                     type="button"
                     onClick={() => setShowEmojiPicker((prev) => !prev)}
-                    className="flex h-10 w-10 items-center justify-center rounded-full text-sm text-white/70 hover:bg-white/10 hover:text-white"
-                    title="Open emoji picker"
+                    className="flex h-10 w-10 items-center justify-center rounded-full text-white/70 hover:bg-white/10 hover:text-white"
                 >
-                    :)
+                    <EmojiIcon />
                 </button>
 
                 <input
                     type="text"
                     value={input}
-                    onChange={(event) => setInput(event.target.value)}
+                    onChange={(e) => setInput(e.target.value)}
                     onKeyDown={handleKeyDown}
-                    placeholder="Share your take..."
+                    placeholder="Type a message..."
                     className="flex-1 bg-transparent text-white placeholder:text-white/40 outline-none"
                 />
 
                 <button
                     type="button"
-                    onClick={() => fileInputRef.current?.click()}
+                    onClick={handleImageButtonClick}
                     className="flex h-10 w-10 items-center justify-center rounded-full text-white/70 hover:bg-white/10 hover:text-white"
                     title="Attach image"
                 >
@@ -164,7 +162,7 @@ export default function MessageInput({ onSend }) {
                 <button
                     type="button"
                     onClick={handleSend}
-                    className="flex h-10 w-10 items-center justify-center rounded-full bg-[linear-gradient(135deg,#5ce069,#3fa142)] text-white hover:opacity-90"
+                    className="flex h-10 w-10 items-center justify-center rounded-full bg-accent-purple text-white hover:opacity-90"
                     title="Send message"
                 >
                     <SendIcon />
