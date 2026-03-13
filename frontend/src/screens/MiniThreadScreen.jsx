@@ -45,12 +45,14 @@ const threadData = [
 
 export default function MiniThreadScreen() {
     return (
-        <div className="min-h-screen bg-midnight text-white p-6">
-            <h1 className="text-xl font-semibold text-accent-purple mb-6">
+        <div className="app-shell min-h-screen px-4 py-6 text-white sm:px-6">
+            <div className="glass-panel screen-noise mx-auto max-w-4xl rounded-[28px] p-6">
+                <h1 className="mb-6 text-xl font-semibold text-accent-purple">
                 Mini Thread Screen
-            </h1>
+                </h1>
 
-            <ThreadTree nodes={threadData} />
+                <ThreadTree nodes={threadData} />
+            </div>
         </div>
     );
 }

@@ -4,11 +4,12 @@ import MessageItem from "./MessageItem";
 
 export default function MessageList({ messages, onOpenThread }) {
     const parentRef = useRef(null);
+    const shouldStickToBottomRef = useRef(true);
 
     const rowVirtualizer = useVirtualizer({
         count: messages.length,
         getScrollElement: () => parentRef.current,
-        estimateSize: () => 120,
+        estimateSize: () => 148,
         overscan: 8,
     });
 
@@ -16,20 +17,28 @@ export default function MessageList({ messages, onOpenThread }) {
         const el = parentRef.current;
         if (!el) return;
 
-        const isNearBottom =
-            el.scrollHeight - el.scrollTop - el.clientHeight < 120;
-
-        if (isNearBottom) {
+        if (shouldStickToBottomRef.current) {
             requestAnimationFrame(() => {
-                el.scrollTop = el.scrollHeight;
+                rowVirtualizer.scrollToIndex(messages.length - 1, {
+                    align: "end",
+                });
             });
         }
-    }, [messages]);
+    }, [messages, rowVirtualizer]);
+
+    const handleScroll = () => {
+        const el = parentRef.current;
+        if (!el) return;
+
+        shouldStickToBottomRef.current =
+            el.scrollHeight - el.scrollTop - el.clientHeight < 120;
+    };
 
     return (
         <div
             ref={parentRef}
-            className="flex-1 overflow-y-auto px-6 py-4"
+            onScroll={handleScroll}
+            className="flex-1 overflow-y-auto px-4 py-4 sm:px-6"
         >
             <div
                 className="relative w-full"
@@ -48,7 +57,7 @@ export default function MessageList({ messages, onOpenThread }) {
                                 transform: `translateY(${virtualRow.start}px)`,
                             }}
                         >
-                            <div className="pb-3">
+                            <div className="pb-4">
                                 <MessageItem
                                     message={message}
                                     onOpenThread={onOpenThread}
