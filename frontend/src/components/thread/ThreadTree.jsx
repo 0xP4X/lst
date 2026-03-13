@@ -4,7 +4,6 @@ import { canRenderChildren } from "../../utils/threadHelpers";
 export default function ThreadTree({
     nodes,
     depth = 0,
-    ancestorHasNext = [],
     selectedNodeId = null,
     onSelectNode,
 }) {
@@ -12,13 +11,11 @@ export default function ThreadTree({
 
     return (
         <>
-            {nodes.map((node, index) => (
+            {nodes.map((node) => (
                 <ThreadNode
                     key={node.id}
                     node={node}
                     depth={depth}
-                    ancestorHasNext={ancestorHasNext}
-                    isLast={index === nodes.length - 1}
                     isSelected={selectedNodeId === node.id}
                     onSelect={onSelectNode}
                 >
@@ -26,10 +23,6 @@ export default function ThreadTree({
                         <ThreadTree
                             nodes={node.replies}
                             depth={depth + 1}
-                            ancestorHasNext={[
-                                ...ancestorHasNext,
-                                index !== nodes.length - 1,
-                            ]}
                             selectedNodeId={selectedNodeId}
                             onSelectNode={onSelectNode}
                         />
