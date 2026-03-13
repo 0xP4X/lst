@@ -2,11 +2,15 @@ export const MAX_THREAD_DEPTH = 4;
 export const INDENT_PER_LEVEL = 24;
 
 export function getIndentation(depth) {
-    return depth * INDENT_PER_LEVEL;
+    return Math.min(depth, MAX_THREAD_DEPTH) * INDENT_PER_LEVEL;
+}
+
+export function getConnectorOffset(depth) {
+    return getIndentation(depth) - INDENT_PER_LEVEL / 2;
 }
 
 export function canRenderChildren(depth) {
-    return depth < MAX_THREAD_DEPTH - 1;
+    return depth < MAX_THREAD_DEPTH;
 }
 
 export function createThreadRoot(message) {

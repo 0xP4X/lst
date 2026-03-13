@@ -12,14 +12,16 @@ export function createMessage({
     image = null,
     replyTo = null,
 }) {
+    const timestamp = Date.now();
     return {
-        id: Date.now() + Math.random(),
+        id: timestamp + Math.random(),
+        clientId: `msg-${timestamp}-${Math.round(Math.random() * 1_000_000)}`,
         user,
         text,
         isSelf,
         image,
         replyTo,
-        time: Date.now(),
+        time: timestamp,
     };
 }
 

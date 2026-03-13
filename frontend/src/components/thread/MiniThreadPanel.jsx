@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import ThreadTree from "./ThreadTree";
 import {
     countReplies,
@@ -15,11 +15,6 @@ export default function MiniThreadPanel({
     const [replyText, setReplyText] = useState("");
     const [selectedNodeId, setSelectedNodeId] = useState(message?.id ?? null);
 
-    useEffect(() => {
-        setSelectedNodeId(message?.id ?? null);
-        setReplyText("");
-    }, [message]);
-
     const threadData = useMemo(() => {
         if (!message) {
             return [];
@@ -32,6 +27,7 @@ export default function MiniThreadPanel({
         () => countReplies(threadData?.[0]?.replies || []),
         [threadData]
     );
+
     const selectedNode = useMemo(
         () =>
             findThreadNode(threadData, selectedNodeId) || threadData?.[0] || null,
@@ -55,8 +51,16 @@ export default function MiniThreadPanel({
     };
 
     return (
-        <div className="w-[380px] h-full border-l border-midnight-border bg-midnight flex flex-col">
-            <div className="h-16 px-4 flex items-center justify-between border-b border-midnight-border">
+        <>
+            <button
+                type="button"
+                onClick={onClose}
+                aria-label="Close mini thread"
+                className="fixed inset-0 z-30 bg-black/40 xl:hidden"
+            />
+
+            <div className="fixed right-0 top-0 z-40 flex h-full w-full max-w-[380px] flex-col border-l border-midnight-border bg-midnight shadow-[-24px_0_60px_rgba(0,0,0,0.35)] xl:static xl:z-auto xl:shadow-none">
+            <div className="flex h-16 items-center justify-between border-b border-midnight-border px-4">
                 <div>
                     <h2 className="text-md font-semibold text-accent-purple">
                         Mini Thread
@@ -68,7 +72,7 @@ export default function MiniThreadPanel({
 
                 <button
                     onClick={onClose}
-                    className="px-3 py-1 rounded-md bg-midnight text-sm"
+                    className="rounded-md bg-midnight px-3 py-1 text-sm"
                 >
                     Close
                 </button>
@@ -79,7 +83,7 @@ export default function MiniThreadPanel({
                     Replying in thread
                 </p>
                 <p className="mt-2 text-sm text-gray-300">{message.user}</p>
-                <p className="mt-1 text-sm text-white/70 line-clamp-3">
+                <p className="mt-1 line-clamp-3 text-sm text-white/70">
                     {message.text || "Shared an attachment"}
                 </p>
             </div>
@@ -122,6 +126,7 @@ export default function MiniThreadPanel({
                     </button>
                 </form>
             </div>
-        </div>
+            </div>
+        </>
     );
 }

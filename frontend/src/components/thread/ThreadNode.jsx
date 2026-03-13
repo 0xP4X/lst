@@ -1,26 +1,45 @@
 import { formatMessageTime } from "../../utils/chatHelpers";
-import { getIndentation } from "../../utils/threadHelpers";
+import { getConnectorOffset, getIndentation } from "../../utils/threadHelpers";
 
 export default function ThreadNode({
     node,
     depth,
+    ancestorHasNext = [],
+    isLast = false,
     children,
     isSelected = false,
     onSelect,
 }) {
     const indent = getIndentation(depth);
+    const connectorOffset = getConnectorOffset(depth);
     const replyCount = node.replies?.length || 0;
 
     return (
         <div className="relative">
             {depth > 0 && (
                 <>
+                    {ancestorHasNext.map((hasNext, index) =>
+                        hasNext ? (
+                            <div
+                                key={`ancestor-line-${node.id}-${index}`}
+                                className="absolute"
+                                style={{
+                                    left: getConnectorOffset(index + 1),
+                                    top: 0,
+                                    bottom: 0,
+                                    width: "2px",
+                                    backgroundColor: "#333333",
+                                }}
+                            />
+                        ) : null
+                    )}
+
                     <div
                         className="absolute"
                         style={{
-                            left: indent - 12,
+                            left: connectorOffset,
                             top: 0,
-                            bottom: 24,
+                            height: isLast ? 24 : "100%",
                             width: "2px",
                             backgroundColor: "#333333",
                         }}
@@ -29,9 +48,9 @@ export default function ThreadNode({
                     <div
                         className="absolute"
                         style={{
-                            left: indent - 12,
+                            left: connectorOffset,
                             top: 24,
-                            width: "12px",
+                            width: "24px",
                             height: "2px",
                             backgroundColor: "#333333",
                         }}
@@ -40,16 +59,17 @@ export default function ThreadNode({
             )}
 
             <div
-                className={`mb-3 rounded-xl border p-4 transition ${isSelected
-                    ? "border-accent-purple bg-white/6"
-                    : "border-midnight-border bg-midnight-surface"
-                    } ${onSelect ? "cursor-pointer hover:border-white/25" : ""}`}
+                className={`mb-3 rounded-[22px] border p-4 transition ${
+                    isSelected
+                        ? "border-accent-purple bg-white/8"
+                        : "border-white/10 bg-[#10232d]/88"
+                } ${onSelect ? "cursor-pointer hover:border-white/25" : ""}`}
                 style={{ marginLeft: indent }}
                 onClick={() => onSelect?.(node)}
             >
                 <div className="mb-2 flex items-start justify-between gap-3">
                     <div>
-                        <p className="text-sm text-gray-300">{node.user}</p>
+                        <p className="text-sm font-semibold text-white">{node.user}</p>
                         <p className="text-xs text-white/40">
                             {node.time ? formatMessageTime(node.time) : "Now"}
                         </p>
@@ -71,7 +91,7 @@ export default function ThreadNode({
                 )}
 
                 {node.text ? (
-                    <p className="text-sm leading-6 text-white">{node.text}</p>
+                    <p className="text-sm leading-7 text-white">{node.text}</p>
                 ) : (
                     <p className="text-sm italic text-white/45">
                         Shared an attachment
