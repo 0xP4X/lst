@@ -2,20 +2,20 @@ import { useEffect, useRef } from "react";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import MessageItem from "./MessageItem";
 
-export default function MessageList({ messages, onOpenThread }) {
+export default function MessageList({ messages, onOpenThread, compact = false }) {
     const parentRef = useRef(null);
     const shouldStickToBottomRef = useRef(true);
 
     const rowVirtualizer = useVirtualizer({
         count: messages.length,
         getScrollElement: () => parentRef.current,
-        estimateSize: () => 148,
+        estimateSize: () => 250,
         overscan: 8,
     });
 
     useEffect(() => {
         const el = parentRef.current;
-        if (!el) return;
+        if (!el || messages.length === 0) return;
 
         if (shouldStickToBottomRef.current) {
             requestAnimationFrame(() => {
@@ -38,7 +38,7 @@ export default function MessageList({ messages, onOpenThread }) {
         <div
             ref={parentRef}
             onScroll={handleScroll}
-            className="flex-1 overflow-y-auto px-4 py-4 sm:px-6"
+            className={`h-full overflow-y-auto ${compact ? "px-2 py-3" : "px-4 py-4 sm:px-6"}`}
         >
             <div
                 className="relative w-full"
@@ -57,10 +57,11 @@ export default function MessageList({ messages, onOpenThread }) {
                                 transform: `translateY(${virtualRow.start}px)`,
                             }}
                         >
-                            <div className="pb-4">
+                            <div className={compact ? "pb-3" : "pb-4 sm:pb-5"}>
                                 <MessageItem
                                     message={message}
                                     onOpenThread={onOpenThread}
+                                    compact={compact}
                                 />
                             </div>
                         </div>

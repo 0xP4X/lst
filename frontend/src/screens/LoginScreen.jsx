@@ -19,6 +19,8 @@ export default function LoginScreen() {
     return (
         <AuthLayout
             title="Sign in to Let&apos;s Talk"
+            eyebrow="Welcome back"
+            mobileDescription="Pick up where you left off, jump into the global room, and keep your threads moving from the same account."
             buttonLabel="Enter workspace"
             buttonType="submit"
             onSubmit={handleLogin}

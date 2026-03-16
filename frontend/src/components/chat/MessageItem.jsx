@@ -1,7 +1,7 @@
 import MessageBubble from "./MessageBubble";
 
-export default function MessageItem({ message, onOpenThread }) {
+export default function MessageItem({ message, onOpenThread, compact = false }) {
     return (
-        <MessageBubble message={message} onOpenThread={onOpenThread} />
+        <MessageBubble message={message} onOpenThread={onOpenThread} compact={compact} />
     );
 }

@@ -40,6 +40,8 @@ export default function RegisterScreen() {
     return (
         <AuthLayout
             title="Create your Let&apos;s Talk profile"
+            eyebrow="Create account"
+            mobileDescription="Set up your profile once, then move between live chat and mini threads with the same conversation tools on mobile and desktop."
             buttonLabel="Create account"
             buttonType="submit"
             onSubmit={handleRegister}
