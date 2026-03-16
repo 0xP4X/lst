@@ -17,11 +17,10 @@ export default function AuthLayout({
     return (
         <div className="auth-backdrop flex min-h-screen items-center justify-center px-4 py-8 text-white">
             <div
-                className={`w-full overflow-hidden border border-white/12 bg-[#0f2430]/78 shadow-[0_28px_80px_rgba(0,0,0,0.28)] backdrop-blur-xl ${
-                    isMobile
+                className={`w-full overflow-hidden border border-white/12 bg-[#0f2430]/78 shadow-[0_28px_80px_rgba(0,0,0,0.28)] backdrop-blur-xl ${isMobile
                         ? "max-w-md rounded-[34px]"
                         : "grid max-w-5xl rounded-[32px] lg:grid-cols-[1.05fr_0.95fr]"
-                }`}
+                    }`}
             >
                 <div className="relative hidden flex-col justify-between overflow-hidden border-r border-white/10 px-10 py-12 lg:flex">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(31,210,255,0.22),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(187,76,255,0.16),transparent_28%)]" />
@@ -68,7 +67,7 @@ export default function AuthLayout({
                                     </div>
                                 </div>
                                 <p className="text-sm leading-6 text-white/65">
-                                    Join global threads, explore active topics, and move between live discussion and personal updates in one calm workspace.
+                                    Join global threads, Explore active topics, and Move between live discussion and personal updates in one calm workspace.
                                 </p>
                             </div>
                         </div>
@@ -137,9 +136,8 @@ export default function AuthLayout({
 
                     <form
                         onSubmit={onSubmit}
-                        className={`glass-soft rounded-[28px] ${
-                            isMobile ? "p-4" : "p-5 sm:p-6"
-                        }`}
+                        className={`glass-soft rounded-[28px] ${isMobile ? "p-4" : "p-5 sm:p-6"
+                            }`}
                     >
                         <div className="space-y-4">{children}</div>
 
